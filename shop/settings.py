@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ujad5xnxoeo--yd2vxw%18q)$c2)@e^&@7gcha91*(#dbhy)pg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*', 'acham.uz']
 
 
 # Application definition
@@ -142,8 +142,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-
-
-
