@@ -1,0 +1,75 @@
+{% extends 'base_en.html' %}
+
+{% load static %}
+
+{% block title %} Acham - Main {% endblock title %}
+{% block main %}
+{% include 'components/_cart_modal_en.html' %}
+
+{% if messages %}
+  <ul class="messages messageBox">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<div class="contact">
+    <div class="contact-filter"></div>
+    <div class="contact-content">
+        <div class="contact__header">
+            <div class="contact__header-logo">
+                <img src="{% static 'images/icons/icon-phone.svg' %}" alt="img">
+            </div>
+            <div class="contact__header-title">CALL US</div>
+        </div>
+        <div class="contact__box">
+            <p>We are always happy to answer your questions!</p>
+            <p>You can contact us at the following phone number:<a class="contact__box-link" href="tel:+998903922022">+998(90)392-20-22</a></p>
+            <p class="contact__box-subtext">Calls are available daily from 10:00 AM to 7:00 PM Uzbekistan time.</p>
+        </div>
+    </div>
+</div>
+
+
+{% include 'components/header/_header_index_en.html' %}
+<main>
+   
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for item in items %}
+                <div class="swiper-slide">
+                    <div class="swiper-slide-img-c" onclick="document.location.href='{% url 'second_page_en' %}'">
+                        <img src="{{ item.images.all.0.get_image }}" loading="lazy"/>
+                        <a href="{% url 'third_page_en' item.pk %}" class="swiper-slide--hovertext">Go to catalogue</a>
+                    </div>
+                    <div class="swiper-slide--text-b">
+                        <span class="swiper-slide--text">{{ item.name_en }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        </div>
+
+    <div class="main__subcontent">
+        <div class="container">
+            <div class="main__subcontent-show">
+                {% for collection in collections %}
+                <a href="{% url 'second_page_en' %}#collection_{{ collection.pk }}"
+                   class="main__subcontent-show--block">
+                    <img src="{{ collection.get_image }}" alt="">
+                    <span class="main__subcontent-show--block---text">{{ collection.name_en }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            <a class="main__content-btn" href="{% url 'second_page_en' %}">Go to catalogue</a>
+        </div>
+    </div>
+    {% include 'components/_acham_line_en.html' %}
+
+</main>
+{% endblock main %}

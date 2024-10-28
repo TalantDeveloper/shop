@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url(../fonts/Inter-Light.woff2);
+}
+
+@font-face {
+    font-family: 'Montserrat-LightItalic';
+    src: url(../fonts/Inter-Light.woff2);
+}
+
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url(../fonts/Inter-SemiBold.woff2);
+}
+
+@font-face {
+    font-family: 'Century';
+    src: url(../fonts/Century.otf);
+    font-weight: 400;
+}

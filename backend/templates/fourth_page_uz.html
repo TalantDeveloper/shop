@@ -1,0 +1,76 @@
+{% extends 'base_uz.html' %}
+{% load static %}
+
+{% block title %} Brend haqida {% endblock title %}
+
+{% block main %}
+{% include 'components/_cart_modal_uz.html' %}
+{% include 'components/header/_header_other_uz.html' %}
+
+
+<div class="contact">
+    <div class="contact-filter"></div>
+    <div class="contact-content">
+        <div class="contact__header">
+            <div class="contact__header-logo">
+                <img src="{% static 'images/icons/icon-phone.svg' %}" alt="img">
+            </div>
+            <div class="contact__header-title">BIZGA QONG`IROQ QILISH</div>
+        </div>
+        <div class="contact__box">
+            <p>Bizning konsultantlarimiz sizning savollaringizga javob berishdan xursand bo`lishadi</p>
+            <p><a class="contact__box-link" href="tel:+998903922022">+998(90)392-20-22 raqami orqali biz bilan bog`lanishingiz mumkin</a></p>
+            <p class="contact__box-subtext">Xizmat dushanbadan jumagacha 10 dan 20 gacha va shanbadan yakshanbagacha 11
+                dan 19 gacha mavjud.</p>
+        </div>
+    </div>
+</div>
+
+
+<main class="main">
+    <div class="main__top">
+        <h2 class="main__top-title">Brend haqida</h2>
+        <p class="main__top-text">Mos kiyim topolmayotganim uchun, men modani boshladim</p>
+    </div>
+    <div class="main__bottom">
+        {% for blog_about in count_about %}
+        <div class="main__bottom-top">
+            {% if not forloop.counter|divisibleby:2 %}
+            <div class="main__bottom-top--column">
+
+                <img src="{{ blog_about.get_image }}" alt="" style="object-fit: cover;">
+            </div>
+            {% endif %}
+
+            {% for blog in blog_about.blogsAbout.all %}
+
+            <div class="main__bottom-top--column">
+
+                <div class="main__bottom-top--column---top">
+                    <div></div>
+                     
+                    <div>
+                        {{ blog.ind }}
+                    </div>
+                   
+                </div>
+                <div class="main__bottom-top--column---title">
+                    <h2>{{ blog.title_uz }}</h2>
+                </div>
+                <div class="main__bottom-top--column---text">
+                    {{ blog.description_uz }}
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="main__bottom-top--column" style="margin: 0 0 0 30px;">
+                <img src="{{ blog_about.get_image }}" alt="" style="object-fit: cover;">
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock main %}

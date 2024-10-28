@@ -1,0 +1,359 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}?111">
+    <link rel="shortcut icon" href="{% static 'images/icons/favicon1.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
+    <meta name="facebook-domain-verification" content="rc980bzu3j14selpkor1c561rrneef" />
+    
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1170997390616647');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1170997390616647&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DBRKTYZJ1S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DBRKTYZJ1S');
+</script>
+
+</head>
+
+<div class="ov_flow">
+    <body>
+
+
+    {% block main %}
+
+
+    {% endblock main %}
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__content-logo">
+                    <img src="{% static 'images/icons/logo.png' %}" alt="">
+                </div>
+                <div class="footer__content-nav">
+                    <span class="footer__content-nav--title"> Saytda navigatsiya</span>
+                    <a href="{% url 'index_uz' %}" class="footer__content-nav--link">Bosh sahifa</a>
+                    <a href="{% url 'fourth_page_uz' %}" class="footer__content-nav--link">Brend haqida</a>
+                    <a href="{% url 'second_page_uz' %}" class="footer__content-nav--link">Katalog</a>
+                </div>
+                <div class="footer__content-cart cart-btn">
+                    <span class="footer__content-cart--title">Savatcha</span>
+                    <div>
+                        <span>({{ cart|length }})</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M1 1H1.26835C1.74213 1 1.97943 1 2.17267 1.08548C2.34304 1.16084 2.48871 1.28218 2.59375 1.43604C2.71269 1.61026 2.75564 1.8429 2.84137 2.30727L5.00004 14L15.4218 14C15.875 14 16.1023 14 16.29 13.9199C16.4559 13.8492 16.5989 13.7346 16.7051 13.5889C16.8252 13.4242 16.8761 13.2037 16.9777 12.7631L16.9785 12.76L18.5477 5.95996L18.5481 5.95854C18.7023 5.29016 18.7796 4.95515 18.6947 4.69238C18.6202 4.46182 18.4635 4.26634 18.2556 4.14192C18.0184 4 17.6758 4 16.9887 4H3.5M16 19C15.4477 19 15 18.5523 15 18C15 17.4477 15.4477 17 16 17C16.5523 17 17 17.4477 17 18C17 18.5523 16.5523 19 16 19ZM6 19C5.44772 19 5 18.5523 5 18C5 17.4477 5.44772 17 6 17C6.55228 17 7 17.4477 7 18C7 18.5523 6.55228 19 6 19Z"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <a href="#">Yetkazib berishni buyurtirish</a>
+                </div>
+                <div class="footer__content-collection">
+                    <span class="footer__content-collection--title">Kolleksiyalarda qidirish</span>
+                    <div>
+
+                        <form action="{% url 'search_collections_uz' %}" method="GET">
+                            <input class="footer__content-collection--input" placeholder="..." type="text"
+                                   name="search">
+
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M13 13L19 19M8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8C15 11.866 11.866 15 8 15Z"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="footer__content-country">
+                    <span class="footer__content-country--title">Mamlakatni tanlash</span>
+                    <div>
+                        <select id="country-select" name="country" style="width: 100%;">
+                            <option value="UZ">Oʻzbekiston</option>
+                            <option value="AF">Afgʻoniston</option>
+                            <option value="AL">Albaniya</option>
+                            <option value="DZ">Jazoir</option>
+                            <option value="AS">Amerika Samoasi</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AO">Angola</option>
+                            <option value="AI">Angilya</option>
+                            <option value="AQ">Antarktika</option>
+                            <option value="AG">Antigua va Barbuda</option>
+                            <option value="AR">Argentina</option>
+                            <option value="AM">Armaniston</option>
+                            <option value="AW">Aruba</option>
+                            <option value="AU">Avstraliya</option>
+                            <option value="AT">Avstriya</option>
+                            <option value="AZ">Oʻzbekiston</option>
+                            <option value="BS">Bagama orollari</option>
+                            <option value="BH">Bahrayn</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BB">Barbados</option>
+                            <option value="BY">Belarus</option>
+                            <option value="BE">Belgiya</option>
+                            <option value="BZ">Beliz</option>
+                            <option value="BJ">Benin</option>
+                            <option value="BM">Bermuda orollari</option>
+                            <option value="BT">Butan</option>
+                            <option value="BO">Boliviya</option>
+                            <option value="BA">Bosniya va Gertsegovina</option>
+                            <option value="BW">Botsvana</option>
+                            <option value="BR">Braziliya</option>
+                            <option value="IO">Britaniya Hind okeani boʻyicha hududi</option>
+                            <option value="VG">Britaniya Virgin orollari</option>
+                            <option value="BN">Bruney</option>
+                            <option value="BG">Bolgariya</option>
+                            <option value="BF">Burkina-Faso</option>
+                            <option value="BI">Burundi</option>
+                            <option value="CV">Kabo-Verde</option>
+                            <option value="KH">Kambodja</option>
+                            <option value="CM">Kamerun</option>
+                            <option value="CA">Kanada</option>
+                            <option value="KY">Kayman orollari</option>
+                            <option value="CF">Markaziy Afrika Respublikasi</option>
+                            <option value="TD">Chad</option>
+                            <option value="CL">Chili</option>
+                            <option value="CN">Xitoy</option>
+                            <option value="CO">Kolumbiya</option>
+                            <option value="KM">Komor orollari</option>
+                            <option value="CD">Kongo (Demokratik Respublikasi)</option>
+                            <option value="CG">Kongo (Respublikasi)</option>
+                            <option value="CK">Kuk orollari</option>
+                            <option value="CR">Kosta-Rika</option>
+                            <option value="HR">Xorvatiya</option>
+                            <option value="CU">Kuba</option>
+                            <option value="CY">Kipr</option>
+                            <option value="CZ">Chexiya</option>
+                            <option value="CI">Kot-d'Ivuar</option>
+                            <option value="DK">Daniya</option>
+                            <option value="DJ">Jibuti</option>
+                            <option value="DM">Dominika</option>
+                            <option value="DO">Dominikan Respublikasi</option>
+                            <option value="EC">Ekvador</option>
+                            <option value="EG">Misr</option>
+                            <option value="SV">Salvador</option>
+                            <option value="GQ">Ekvatorial Gvineya</option>
+                            <option value="ER">Eritreya</option>
+                            <option value="EE">Estoniya</option>
+                            <option value="SZ">Svazilend</option>
+                            <option value="ET">Efiopiya</option>
+                            <option value="FK">Folklend orollari</option>
+                            <option value="FO">Farer orollari</option>
+                            <option value="FJ">Fiji</option>
+                            <option value="FI">Finlandiya</option>
+                            <option value="FR">Fransiya</option>
+                            <option value="GF">Fransuz Gvianasi</option>
+                            <option value="PF">Fransuz Polineziyasi</option>
+                            <option value="TF">Fransuz Janubiy va Antarktika hududlari</option>
+                            <option value="GA">Gabon</option>
+                            <option value="GM">Gambiya</option>
+                            <option value="GE">Gruziya</option>
+                            <option value="DE">Germaniya</option>
+                            <option value="GH">Gana</option>
+                            <option value="GI">Gibraltar</option>
+                            <option value="GR">Yunoniston</option>
+                            <option value="GL">Grenlandiya</option>
+                            <option value="GD">Grenada</option>
+                            <option value="GP">Guadelupa</option>
+                            <option value="GU">Guam</option>
+                            <option value="GT">Gvatemala</option>
+                            <option value="GG">Gernsi</option>
+                            <option value="GN">Gvineya</option>
+                            <option value="GW">Gvineya-Bisau</option>
+                            <option value="GY">Gayana</option>
+                            <option value="HT">Gaiti</option>
+                            <option value="VA">Vatikan</option>
+                            <option value="HN">Gonduras</option>
+                            <option value="HK">Gonkong</option>
+                            <option value="HU">Vengriya</option>
+                            <option value="IS">Islandiya</option>
+                            <option value="IN">Hindiston</option>
+                            <option value="ID">Indoneziya</option>
+                            <option value="IR">Eron</option>
+                            <option value="IQ">Iroq</option>
+                            <option value="IE">Irlandiya</option>
+                            <option value="IM">Men oroli</option>
+                            <option value="IL">Isroil</option>
+                            <option value="IT">Italiya</option>
+                            <option value="JM">Yamayka</option>
+                            <option value="JP">Yaponiya</option>
+                            <option value="JE">Jersi</option>
+                            <option value="JO">Urdun</option>
+                            <option value="KZ">Qozogʻiston</option>
+                            <option value="KE">Keniya</option>
+                            <option value="KI">Kiribati</option>
+                            <option value="KW">Quvayt</option>
+                            <option value="KG">Qirgʻiziston</option>
+                            <option value="LA">Laos</option>
+                            <option value="LV">Latviya</option>
+                            <option value="LB">Livan</option>
+                            <option value="LS">Lesoto</option>
+                            <option value="LR">Liberiya</option>
+                            <option value="LY">Liviya</option>
+                            <option value="LI">Lixtenshteyn</option>
+                            <option value="LT">Litva</option>
+                            <option value="LU">Lyuksemburg</option>
+                            <option value="MO">Makao</option>
+                            <option value="MG">Madagaskar</option>
+                            <option value="MW">Malavi</option>
+                            <option value="MY">Malayziya</option>
+                            <option value="MV">Maldiv orollari</option>
+                            <option value="ML">Mali</option>
+                            <option value="MT">Malta</option>
+                            <option value="MH">Marshall orollari</option>
+                            <option value="MQ">Martinika</option>
+                            <option value="MR">Mavritaniya</option>
+                            <option value="MU">Mavrikiy</option>
+                            <option value="YT">Mayotta</option>
+                            <option value="MX">Meksika</option>
+                            <option value="FM">Mikroneziya Federativ Shtatlari</option>
+                            <option value="MD">Moldova</option>
+                            <option value="MC">Monako</option>
+                            <option value="MN">Mongoliya</option>
+                            <option value="ME">Chernogoriya</option>
+                            <option value="MS">Montserrat</option>
+                            <option value="MA">Marokash</option>
+                            <option value="MZ">Mozambik</option>
+                            <option value="MM">Myanma</option>
+                            <option value="NA">Namibiya</option>
+                            <option value="NR">Nauru</option>
+                            <option value="NP">Nepal</option>
+                            <option value="NL">Niderlandiya</option>
+                            <option value="NC">Yangi Kaledoniya</option>
+                            <option value="NZ">Yangi Zelandiya</option>
+                            <option value="NI">Nikaragua</option>
+                            <option value="NE">Niger</option>
+                            <option value="NG">Nigeriya</option>
+                            <option value="NU">Niue</option>
+                            <option value="NF">Norfolk oroli</option>
+                            <option value="KP">Shimoliy Koreya</option>
+                            <option value="MK">Shimoliy Makedoniya</option>
+                            <option value="NO">Norvegiya</option>
+                            <option value="OM">Ummon</option>
+                            <option value="PK">Pokiston</option>
+                            <option value="PW">Palau</option>
+                            <option value="PS">Falastin</option>
+                            <option value="PA">Panama</option>
+                            <option value="PG">Papua - Yangi Gvineya</option>
+                            <option value="PY">Paragvay</option>
+                            <option value="PE">Peru</option>
+                            <option value="PH">Filippin</option>
+                            <option value="PN">Pitkern</option>
+                            <option value="PL">Polsha</option>
+                            <option value="PT">Portugaliya</option>
+                            <option value="PR">Puerto-Riko</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RE">Reyunion</option>
+                            <option value="RO">Ruminiya</option>
+                            <option value="RU">Rossiya</option>
+                            <option value="RW">Ruanda</option>
+                            <option value="BL">Sen-Bartelemi</option>
+                            <option value="SH">Muqaddas Yelena, Vozneseniye va Tristan-da-Kunya orollari</option>
+                            <option value="KN">Sent-Kits va Nevis</option>
+                            <option value="LC">Sent-Lyusiya</option>
+                            <option value="MF">Sent-Marten</option>
+                            <option value="PM">Sent-Pyer va Mikelon</option>
+                            <option value="VC">Sent-Vinsent va Grenadin</option>
+                            <option value="WS">Samoa</option>
+                            <option value="SM">San-Marino</option>
+                            <option value="ST">San-Tome va Prinsipi</option>
+                            <option value="SA">Saudiya Arabistoni</option>
+                            <option value="SN">Senegal</option>
+                            <option value="RS">Serbiya</option>
+                            <option value="SC">Seyshel orollari</option>
+                            <option value="SL">Syerra-Leone</option>
+                            <option value="SG">Singapur</option>
+                            <option value="SX">Sint-Marten</option>
+                            <option value="SK">Slovakiya</option>
+                            <option value="SI">Sloveniya</option>
+                            <option value="SB">Solomon orollari</option>
+                            <option value="SO">Somali</option>
+                            <option value="ZA">Janubiy Afrika</option>
+                            <option value="GS">Janubiy Georgiya va Janubiy Sandvich orollari</option>
+                            <option value="SS">Janubiy Sudan</option>
+                            <option value="ES">Ispaniya</option>
+                            <option value="LK">Shri-Lanka</option>
+                            <option value="SD">Sudan</option>
+                            <option value="SR">Surinam</option>
+                            <option value="SE">Shvetsiya</option>
+                            <option value="CH">Shveytsariya</option>
+                            <option value="SY">Suriya</option>
+                            <option value="TW">Tayvan</option>
+                            <option value="TJ">Tojikiston</option>
+                            <option value="TZ">Tanzaniya</option>
+                            <option value="TH">Tailand</option>
+                            <option value="TL">Sharqiy Timor</option>
+                            <option value="TG">Togo</option>
+                            <option value="TK">Tokelau</option>
+                            <option value="TO">Tonga</option>
+                            <option value="TT">Trinidad va Tobago</option>
+                            <option value="TN">Tunis</option>
+                            <option value="TR">Turkiya</option>
+                            <option value="TM">Turkmaniston</option>
+                            <option value="TC">Terks va Kaykos orollari</option>
+                            <option value="TV">Tuvalu</option>
+                            <option value="UG">Uganda</option>
+                            <option value="UA">Ukraina</option>
+                            <option value="AE">Birlashgan Arab Amirliklari</option>
+                            <option value="GB">Buyuk Britaniya</option>
+                            <option value="US">Amerika Qoʻshma Shtatlari</option>
+                            <option value="UY">Urugvay</option>
+                            <option value="VU">Vanuatu</option>
+                            <option value="VE">Venesuela</option>
+                            <option value="VN">Vyetnam</option>
+                            <option value="WF">Uollis va Futuna</option>
+                            <option value="EH">Gʻarbiy Sahroi Kabir</option>
+                            <option value="YE">Yaman</option>
+                            <option value="ZM">Zambiya</option>
+                            <option value="ZW">Zimbabve</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+    </body>
+</div>
+
+</html>

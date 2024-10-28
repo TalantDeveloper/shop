@@ -1,0 +1,50 @@
+<div class="cart-modal">
+    <div class="cart-modal__content">
+        <div class="absolute-nav">
+            <div class="price_block">
+            <div class="fullprice">Всего в долларах: {{ cart.get_total_price|floatformat:0 }}$
+            </div>
+            <div class="fullprice">Всего в сумах: {{ cart.get_total_price_uz }} сум</div>
+            </div>
+            
+            <div class="close-modal-btn">X</div>
+        </div>
+        <div class="cart-modal__content-top">
+
+            {% for cart_item in cart %}
+            <div class="cart-modal__content-top--card">
+                <img src="{{ cart_item.product.images.all.0.get_image }}" alt="">
+                <div>
+                    <h3>{{ cart_item.product.name }}</h3>
+                    <p>Цена в долларах: {{ cart_item.price|floatformat:0 }}$</p>
+                    <p>Цена в сумах: {{ cart_item.product.price_uz }} сум</p>
+                </div>
+                <a href="{% url 'cart_remove' cart_item.product.id %}">Удалить</a>
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="cart-modal__content-middle">
+            <a href="#" class="cart-modal__content-middle--btn1">Оформить заказ</a>
+            <a href="#" class="cart-modal__content-middle--btn2">Заказать звонком</a>
+        </div>
+        <div class="cart-modal__content-bottom">
+                <form action="{% url 'save_cart' %}" method="post" style="width: 100%;" class="inputs">
+
+                    {% csrf_token %}
+
+                    {% for inp in cart_form %}
+                    {{ inp }}
+                    {% endfor %}
+
+                    <button>Заказать</button>
+                </form>
+
+            <div class="bottom-btns">
+                <a href="#" class="back">Назад</a>
+                <a href="#">Заказать звонком</a>
+            </div>
+        </div>
+    </div>
+</div>

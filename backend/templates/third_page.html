@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+{% include 'components/_cart_modal.html' %}
+
+
+<div class="contact">
+    <div class="contact-filter"></div>
+    <div class="contact-content">
+        <div class="contact__header">
+            <div class="contact__header-logo">
+                <img src="{% static 'images/icons/icon-phone.svg' %}" alt="img">
+            </div>
+            <div class="contact__header-title">ПОЗВОНИТЬ НАМ</div>
+        </div>
+        <div class="contact__box">
+            <p>Мы всегда рады ответить на ваши вопросы!</p>
+            <p>Вы можете связаться с нами по номеру  телефона: <a class="contact__box-link" href="tel:+998903922022">+998(90)392-20-22</a></p>
+            <p class="contact__box-subtext">Звонки доступны ежедневно с 10:00 до 19:00 по узбекистанскому времени.</p>
+        </div>
+    </div>
+</div>
+
+{% include 'components/header/_header_other.html' %}
+
+<main class="swiper-main">
+    <div class="main__card">
+        <div class="container">
+            <!--                Сам товар-->
+            <div class="main__card-info  third">
+                <div class="main__card-info--img">
+                    <div class="swiper cardSwiper">
+                        <div class="swiper-wrapper">
+                            {% for image in item.images.all %}
+                            <div class="swiper-slide">
+                                <img src="{{ image.get_image }}" alt="">
+                            </div>
+                           {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+
+                    </div>
+                </div>
+                <div class="main__card-info--info">
+                    <h2 class="main__card-info--info---title">{{ item.name }}</h2>
+                    <div class="main__card-info--info---material">
+                        <span>Используемый материал</span>
+                        <span>{{ item.material }}</span>
+                    </div>
+                    <div class="main__card-info--info---material">
+                        <span>Цена в долларах:</span>
+                        <span id="price" data-price="{{ item.price }}">{{ item.price }}$</span>
+                    </div>
+                    <div class="main__card-info--info---material">
+                        <span>Цена в сумах:</span>
+                        <span id="converted_price">{{ item.price_uz }} сум</span>
+                    </div>
+                    <p class="main__card-info--info---text">{{ item.description }}</p>
+                  
+                    <div class="main__card-info--info---btns">
+                        <form action="{% url 'cart_add' item.id %}" method="post" style="width: 100%;">
+                            {% csrf_token %}
+                            <input type="submit" value="Добавить в корзину" class="btn1">
+                        </form>
+                        <a href="#" class="btn2 cart-modal__content-middle--btn2">Связаться с нами</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            {% for swiper_item in items %}
+            <div class="swiper-slide">
+                <div class="swiper-slide-img-c"
+                     onclick="document.location.href='{% url 'third_page' swiper_item.pk %}'">
+                    <img src="{{ swiper_item.images.all.0.get_image }}"/>
+                    <a href="{% url 'third_page' swiper_item.pk %}" class="swiper-slide--hovertext">Перейти в
+                        каталог</a>
+                </div>
+                <div class="swiper-slide--text-b">
+                    <span class="swiper-slide--text">{{ swiper_item.name }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    {% include 'components/_acham_line.html' %}
+</main>
+{% endblock main %}
